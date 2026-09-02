@@ -1,0 +1,199 @@
+/* 1. Cabeçalho (Header)
+   -------------------------------------------------------------------------- */
+header {
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+}
+
+header .logo h1 {
+    color: var(--primary);
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+nav a:hover, nav a:focus {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+/* 2. Layout Principal (Main & Sections)
+   -------------------------------------------------------------------------- */
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+section {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+h2 {
+    color: var(--primary-dark);
+    font-size: 1.4rem;
+    border-left: 4px solid var(--primary);
+    padding-left: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+section > p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+/* 3. Artigos / Cards internos
+   -------------------------------------------------------------------------- */
+article {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+article h3 {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+article p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Botão de Fechar / Ícone (Desafio Extra) */
+article button[type="button"] {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: transparent;
+    border: none;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+article button[type="button"]:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+}
+
+/* 4. Formulários Acessíveis (Form & Fieldsets)
+   -------------------------------------------------------------------------- */
+fieldset {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    background-color: #fafafa;
+}
+
+legend {
+    font-weight: 700;
+    color: var(--primary-dark);
+    padding: 0 0.5rem;
+    font-size: 0.95rem;
+}
+
+form p {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.35rem;
+    color: var(--text-main);
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.95rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: var(--text-main);
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+/* Radio buttons estilizados e alinhados */
+fieldset input[type="radio"] {
+    width: auto;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+fieldset p:has(input[type="radio"]) {
+    display: inline-block;
+    margin-right: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+fieldset p:has(input[type="radio"]) label {
+    display: inline;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+/* Botão Principal de Envio */
+button[type="submit"] {
+    background-color: var(--primary);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--primary-dark);
+}
+
+/* 5. Rodapé (Footer)
+   -------------------------------------------------------------------------- */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+}
