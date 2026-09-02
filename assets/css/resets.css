@@ -1,0 +1,28 @@
+/* Resets e Variáveis
+   -------------------------------------------------------------------------- */
+:root {
+    --primary: #0284c7;        /* Azul Foco */
+    --primary-dark: #0369a1;   /* Azul Escuro / Hover */
+    --primary-light: #e0f2fe;  /* Fundo sutil */
+    --text-main: #1e293b;      /* Grafite para leitura confortável */
+    --text-muted: #64748b;     /* Texto secundário */
+    --bg-main: #f8fafc;        /* Fundo suave off-white */
+    --bg-card: #ffffff;        /* Cards brancos */
+    --border: #e2e8f0;         /* Bordas suaves */
+    --radius: 8px;             /* Arredondamento padrão */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding: 0;
+}
