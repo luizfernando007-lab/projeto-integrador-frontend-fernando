@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>+Foco - Plataforma de Estudos e Produtividade</title>
+</head>
+<body>
+
+    <!-- Cabeçalho Principal -->
+    <header>
+        <div class="logo">
+            <h1>+Foco</h1>
+        </div>
+        <nav aria-label="Navegação Principal">
+            <ul>
+                <li><a href="#ferramentas">Ferramentas</a></li>
+                <li><a href="#cadastro">Cadastrar Atividade</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal Único -->
+    <main>
+
+        <!-- Seção 1: Apresentação das Ferramentas -->
+        <section id="ferramentas">
+            <h2>Suas Ferramentas de Estudo</h2>
+            <p>Otimize seu tempo com nossas opções integradas de produtividade.</p>
+
+            <article>
+                <h3>Cronograma & Calendário</h3>
+                <p>Organize suas entregas acadêmicas e prazos importantes.</p>
+            </article>
+
+            <article>
+                <h3>Timer Pomodoro</h3>
+                <p>Mantenha a concentração em blocos focados de tempo com pausas estratégicas.</p>
+                <!-- Desafio Extra: Botão de ícone sem texto visível + aria-label -->
+                <button type="button" aria-label="Fechar alerta de notificação do timer">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </article>
+        </section>
+
+        <!-- Seção 2: Formulário de Cadastro de Tarefas/Estudos -->
+        <section id="cadastro">
+            <h2>Cadastrar Nova Atividade de Estudo</h2>
+
+            <form action="#" method="POST">
+                
+                <!-- Agrupamento 1: Dados da Atividade -->
+                <fieldset>
+                    <legend>Informações da Atividade</legend>
+
+                    <p>
+                        <label for="titulo-atividade">Título da Atividade:</label>
+                        <input type="text" id="titulo-atividade" name="titulo" required pattern=".{3,}" title="Digite no mínimo 3 caracteres">
+                    </p>
+
+                    <p>
+                        <label for="categoria-estudo">Categoria:</label>
+                        <!-- Desafio Extra: Select com 4+ opções -->
+                        <select id="categoria-estudo" name="categoria" required>
+                            <option value="">Selecione uma categoria...</option>
+                            <option value="cronograma">Cronograma</option>
+                            <option value="atividades">Atividades / Exercícios</option>
+                            <option value="calendario">Calendário Acadêmico</option>
+                            <option value="pomodoro">Sessão Pomodoro</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="data-entrega">Data de Entrega:</label>
+                        <input type="date" id="data-entrega" name="data_entrega" required min="2026-01-01">
+                    </p>
+
+                    <p>
+                        <label for="horas-estimadas">Tempo Estimado (em horas):</label>
+                        <input type="number" id="horas-estimadas" name="horas" min="1" max="100" step="1">
+                    </p>
+                </fieldset>
+
+                <!-- Agrupamento 2: Nível de Prioridade -->
+                <fieldset>
+                    <legend>Prioridade da Tarefa</legend>
+                    <!-- Desafio Extra: Radio buttons mutuamente exclusivos -->
+                    <p>
+                        <input type="radio" id="prioridade-baixa" name="prioridade" value="baixa">
+                        <label for="prioridade-baixa">Baixa</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="prioridade-media" name="prioridade" value="media" checked>
+                        <label for="prioridade-media">Média</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="prioridade-alta" name="prioridade" value="alta">
+                        <label for="prioridade-alta">Alta</label>
+                    </p>
+                </fieldset>
+
+                <!-- Agrupamento 3: Informações de Contato / Notificação -->
+                <fieldset>
+                    <legend>Notificações</legend>
+                    <p>
+                        <label for="email-notificacao">E-mail para Lembretes:</label>
+                        <input type="email" id="email-notificacao" name="email" required placeholder="aluno@exemplo.com">
+                    </p>
+                </fieldset>
+
+                <button type="submit">Salvar Atividade</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2026 +Foco - Plataforma de Apoio ao Estudante. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
