@@ -34,3 +34,12 @@ projeto-integrador-frontend/
 ├── .gitignore
 ├── index.html
 └── README.md
+#Data 02/09/2026
+Avaliação em pares: Lucas Gabriel Lima Galdino avaliando Luiz Fernando Barbosa Gomes
+Texto de avaliação:
+Referente ao arquivo index.html, todas as semânticas estão corretas ajudando na leitura do código, assim, a tag label também está correta associados
+ao seu input e select alinhado ao id. O formulário ajuda usuários de leitores de tela a entenderem o contexto das opções (como os radio buttons de prioridade).
+Todas as as div aparatemente estão corretas,única coisa que possa precisar de melhoria e questão de  o div envelopar o <p> em algumas ocasiões.
+Referente ao arquivo do Css, está bem completo junto com o html e as variáveis css tem uma ótima arquetetura,assim, os espaçamentos e sombras discretas no h2 entregam uma boa interface. O uso pseudoclasse é um css moderno, mas não conheço muito ainda, mas aparatemente o uso está correto.
+Usando a tag focus ajuda no uso de box-shadow: ao focar em inputs melhora drasticamente a navegação por teclado sem quebrar o design.
+Com isso, único ajuste aparetemente é no form colocou a largura o "width", mas esqueceu de colocar o box-sizing e o border-box.
