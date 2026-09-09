@@ -34,6 +34,8 @@ projeto-integrador-frontend/
 ├── .gitignore
 ├── index.html
 └── README.md
+```
+
 #Data 02/09/2026
 Avaliação em pares: Lucas Gabriel Lima Galdino avaliando Luiz Fernando Barbosa Gomes
 Texto de avaliação:
