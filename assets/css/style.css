@@ -188,6 +188,65 @@ button[type="submit"]:hover {
     background-color: var(--primary-dark);
 }
 
+/* 
+   Seção de Multimídia
+   -------------------------------------------------------------------------- */
+
+/* Container do Vídeo e Ajustes da Seção */
+#demonstracao-midia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#demonstracao-midia h2 {
+    align-self: flex-start; /* Mantém o título alinhado à esquerda na barra */
+    text-align: left;
+}
+
+/* Estilização do elemento <video> */
+#demonstracao-midia video {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius, 8px); /* Reaproveita a variável se existir, ou usa 8px */
+    border: 1px solid var(--border, #e2e8f0);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    background-color: #0f172a; /* Fundo escuro enquanto o vídeo/poster carrega */
+    margin: 1rem 0;
+    outline: none;
+}
+
+/* Destaque para o Foco via Teclado (Acessibilidade) */
+#demonstracao-midia video:focus {
+    border-color: var(--primary, #0284c7);
+    box-shadow: 0 0 0 3px var(--primary-light, #e0f2fe);
+}
+
+/* Mensagem do Desafio Extra (canPlayType) */
+#suporte-midia {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+}
+
+#suporte-midia small {
+    display: inline-block;
+    background-color: var(--primary-light, #e0f2fe);
+    color: var(--primary-dark, #0369a1);
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    font-family: monospace;
+    font-weight: 600;
+}
+
+/* Estilização das legendas nativas do player HTML5 */
+#demonstracao-midia video::cue {
+    background: rgba(15, 23, 42, 0.8);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
 /* 5. Rodapé (Footer)
    -------------------------------------------------------------------------- */
 footer {
@@ -197,3 +256,4 @@ footer {
     font-size: 0.85rem;
     border-top: 1px solid var(--border);
 }
+
