@@ -114,6 +114,29 @@
             </form>
         </section>
 
+        <!-- Seção 3: Guia em Vídeo - Mídia com Acessibilidade e Fallback -->
+        <section id="demonstracao-midia">
+            <h2>Como Funciona a Técnica Pomodoro</h2>
+            <p>Assista ao tutorial guiado para aprender a como funciona ciclos de estudo.</p>
+
+            <video controls poster="assets/images/poster-pomodoro.png" preload="metadata" width="100%">
+                <!-- 1ª Opção: WebM (Formato moderno, mais leve e com melhor compressão) -->
+                <source src="assets/media/intro-pomodoro.webm" type="video/webm; codecs=vp9, vorbis">
+                
+                <!-- 2ª Opção: MP4 (Formato universal para compatibilidade estendida) -->
+                <source src="assets/media/intro-pomodoro.mp4" type="video/mp4; codecs=avc1.42E01E, mp4a.40.2">
+
+                <!-- Legendas / Acessibilidade para deficientes auditivos -->
+                <track kind="subtitles" src="assets/media/legendas-pt.vtt" srclang="pt" label="Português" default>
+
+                <!-- Mensagem de Fallback para navegadores sem suporte a HTML5 Video -->
+                <p>Seu navegador não suporta a execução de vídeos HTML5. Você pode <a href="assets/media/intro-pomodoro.mp4">baixar o vídeo aqui</a>.</p>
+            </video>
+
+            <!-- Desafio Extra: Script para verificação do canPlayType() no console/DOM -->
+            <p id="suporte-midia"><small></small></p>
+        </section>
+
     </main>
 
     <!-- Rodapé -->
@@ -121,5 +144,6 @@
         <p>&copy; 2026 +Foco - Plataforma de Apoio ao Estudante. Todos os direitos reservados.</p>
     </footer>
 
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
