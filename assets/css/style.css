@@ -1,6 +1,31 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* compensa o header sticky nas âncoras */
+}
+
+/* rem em TODOS os font-size: rem é relativo ao tamanho de fonte da raiz
+   (que o usuário pode aumentar no navegador), então o texto respeita a
+   acessibilidade; px é fixo e ignora essa preferência. */
+
+/* Estados de link na ordem LoVe/HAte (Link, Visited, Hover, Active) */
+a:link    { color: var(--primary); }
+a:visited { color: #6d28d9; }
+a:hover   { color: var(--primary-dark); }
+a:active  { color: var(--text-main); }
+
 /* 1. Cabeçalho (Header)
    -------------------------------------------------------------------------- */
+/* Aula 08: header sticky (acompanha a rolagem sem sair do fluxo) com Flexbox.
+   O z-index forma o contexto de empilhamento que mantém o dropdown acima
+   dos <article> (position: relative) mais abaixo na página. */
 header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
     background-color: var(--bg-card);
     border-bottom: 1px solid var(--border);
     padding: 1rem 2rem;
@@ -11,25 +36,96 @@ header .logo h1 {
     color: var(--primary);
     font-size: 1.75rem;
     font-weight: 800;
-    margin-bottom: 0.5rem;
 }
 
+/* Combinador descendente (nav ul): atinge só as listas dentro do menu,
+   sem afetar outras <ul> da página. */
 nav ul {
-    list-style: none;
+    list-style-type: none;
     display: flex;
     gap: 1.5rem;
 }
 
 nav a {
-    color: var(--text-muted);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
 }
 
+nav ul {
+    align-items: center;
+}
+
+nav a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+}
+
+nav a:link,
+nav a:visited {
+    color: var(--text-muted);
+}
+
 nav a:hover, nav a:focus {
     color: var(--primary);
     text-decoration: underline;
+}
+
+nav a:active {
+    color: var(--primary-dark);
+}
+
+/* Estado ativo: item da seção atual */
+nav a.ativo {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+}
+
+/* Dropdown via :hover. position: relative no item pai ancora o submenu;
+   top: 100% encosta o submenu no pai, sem "buraco" que o fecharia. */
+.dropdown {
+    position: relative;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 14rem;
+    padding: 0.5rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.dropdown:hover > .submenu,
+.dropdown:focus-within > .submenu {
+    display: flex;
+}
+
+/* Botão hambúrguer: só estrutura visual (sem clique ainda) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.6rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    background-color: var(--text-main);
 }
 
 /* 2. Layout Principal (Main & Sections)
@@ -64,7 +160,8 @@ section > p {
 
 /* 3. Artigos / Cards internos
    -------------------------------------------------------------------------- */
-article {
+/* Box model explícito: padding (espaço interno), border e margin (espaço externo) */
+.card {
     background-color: var(--bg-main);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -73,19 +170,26 @@ article {
     position: relative;
 }
 
-article h3 {
+/* Combinador descendente (.card h3): só os títulos dentro de um card */
+.card h3 {
     font-size: 1.1rem;
     color: var(--text-main);
     margin-bottom: 0.5rem;
 }
 
-article p {
+.card p {
     color: var(--text-muted);
     font-size: 0.95rem;
 }
 
+/* Variação reutilizável: card em destaque */
+.destaque {
+    border-left: 4px solid var(--primary);
+    background-color: var(--primary-light);
+}
+
 /* Botão de Fechar / Ícone (Desafio Extra) */
-article button[type="button"] {
+.card button[type="button"] {
     position: absolute;
     top: 0.75rem;
     right: 0.75rem;
@@ -98,7 +202,7 @@ article button[type="button"] {
     border-radius: 4px;
 }
 
-article button[type="button"]:hover {
+.card button[type="button"]:hover {
     background-color: var(--primary-light);
     color: var(--primary-dark);
 }
@@ -171,8 +275,8 @@ fieldset p:has(input[type="radio"]) label {
     cursor: pointer;
 }
 
-/* Botão Principal de Envio */
-button[type="submit"] {
+/* Botão Principal de Envio (classe reutilizável .botao) */
+.botao {
     background-color: var(--primary);
     color: #ffffff;
     font-size: 1rem;
@@ -184,7 +288,7 @@ button[type="submit"] {
     width: 100%;
 }
 
-button[type="submit"]:hover {
+.botao:hover {
     background-color: var(--primary-dark);
 }
 
@@ -257,3 +361,31 @@ footer {
     border-top: 1px solid var(--border);
 }
 
+/* 6. Telas estreitas (Aula 08)
+   -------------------------------------------------------------------------- */
+@media (max-width: 48rem) {
+    header {
+        flex-wrap: wrap;
+        padding: 0.75rem 1rem;
+    }
+
+    /* hambúrguer visível; o clique será implementado em aula futura */
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
