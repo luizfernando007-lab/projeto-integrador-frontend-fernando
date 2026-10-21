@@ -9,14 +9,37 @@
 </head>
 <body>
 
-    <!-- Cabeçalho Principal -->
+    <!-- Cabeçalho Principal (sticky) -->
+    <!--
+        Diagnóstico de empilhamento (Aula 08):
+        O dropdown é filho do <header>, que tem position: sticky + z-index: 1000
+        e por isso forma um contexto de empilhamento próprio. Sem esse z-index,
+        os <article> (position: relative, usado para posicionar o botão de fechar)
+        vêm depois no HTML e eram pintados por cima do submenu. A correção foi dar
+        z-index ao header (o contexto certo) em vez de aumentar valores às cegas.
+    -->
     <header>
         <div class="logo">
             <h1>+Foco</h1>
         </div>
+
+        <!-- Botão hambúrguer: apenas estrutura (sem clique ainda) -->
+        <button type="button" class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="menu-principal">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <nav aria-label="Navegação Principal">
-            <ul>
-                <li><a href="#ferramentas">Ferramentas</a></li>
+            <ul id="menu-principal">
+                <li class="dropdown">
+                    <a href="#ferramentas" class="ativo" aria-current="page">Ferramentas</a>
+                    <ul class="submenu">
+                        <li><a href="#cronograma">Cronograma &amp; Calendário</a></li>
+                        <li><a href="#pomodoro">Timer Pomodoro</a></li>
+                        <li><a href="#demonstracao-midia">Guia em vídeo</a></li>
+                    </ul>
+                </li>
                 <li><a href="#cadastro">Cadastrar Atividade</a></li>
             </ul>
         </nav>
@@ -30,12 +53,12 @@
             <h2>Suas Ferramentas de Estudo</h2>
             <p>Otimize seu tempo com nossas opções integradas de produtividade.</p>
 
-            <article>
+            <article id="cronograma" class="card">
                 <h3>Cronograma & Calendário</h3>
                 <p>Organize suas entregas acadêmicas e prazos importantes.</p>
             </article>
 
-            <article>
+            <article id="pomodoro" class="card destaque">
                 <h3>Timer Pomodoro</h3>
                 <p>Mantenha a concentração em blocos focados de tempo com pausas estratégicas.</p>
                 <!-- Desafio Extra: Botão de ícone sem texto visível + aria-label -->
@@ -110,7 +133,7 @@
                     </p>
                 </fieldset>
 
-                <button type="submit">Salvar Atividade</button>
+                <button type="submit" class="botao">Salvar Atividade</button>
             </form>
         </section>
 
@@ -145,5 +168,7 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <!-- Aula 09: lógica em JavaScript (relatório de atividades, veja o Console) -->
+    <script src="assets/js/logica.js" defer></script>
 </body>
 </html>
